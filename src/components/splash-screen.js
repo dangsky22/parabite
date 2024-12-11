@@ -11,6 +11,7 @@ export default function  SplashScreen ({setSplashDone}){
     >
       <div className="text-white text-4xl font-bold pt-40">
        <Image src="/svg/splash-image.svg" width={224} height={366} alt="splash image"/>
+       
       </div>
     </motion.div>
     )
