@@ -1,17 +1,18 @@
-import {motion} from "framer-motion"
-import Image from "next/image"
-export default function  SplashScreen ({setSplashDone}){
-    return(
-        <motion.div
-      initial={{ y: 0 }}
-      animate={{ y: "-100%", scale: 1 }}
-      transition={{ duration: 1.5, ease: "easeInOut" }}
-      onAnimationComplete={() => setSplashDone(true)}
-      className="fixed inset-0 bg-orange-500 flex justify-center items-center z-50"
+import { motion } from "framer-motion";
+import Image from "next/image";
+
+export default function SplashScreen({ onComplete }) {
+  return (
+    <motion.div
+      initial={{ y: 0 }} // Posisi awal splash screen
+      animate={{ y: "-100%", scale: 1 }} // Menarik splash screen ke atas
+      transition={{ duration: 1, ease: "easeInOut" }} // Animasi transisi
+      onAnimationComplete={onComplete} // Menyelesaikan animasi
+      className="max-w-[375px] mx-auto fixed inset-0 bg-orange-500 flex justify-center items-center "
     >
-      <div className="text-white text-4xl font-bold pt-40">
-       <Image src="/svg/splash-image.svg" width={224} height={366} alt="splash image"/>
+      <div className="text-white text-4xl font-bold ">
+        <Image src="/svg/splash-image.svg" width={224} height={366} alt="splash image" />
       </div>
     </motion.div>
-    )
+  );
 }
