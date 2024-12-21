@@ -1,11 +1,14 @@
 import MenuCard from "@/components/ui/menu-card";
+import Link from "next/link";
 
 export default function Page() {
     return (
       <div className="font-sans bg-gray-100 min-h-screen w-full">
         {/* Header */}
-        <div className="bg-yellow-500 text-white flex items-center p-4">
+        <div className="bg-yellow-500 text-white flex items-center p-4 rounded-b-3xl">
+          <Link href="/dashboard" passHref>
           <button className="text-2xl">&larr;</button>
+          </Link>
           <h1 className="text-xl font-bold mx-auto">Kantin Malathi</h1>
         </div>
   

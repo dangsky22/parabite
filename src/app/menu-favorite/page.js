@@ -1,11 +1,15 @@
 import MenuCard from "@/components/ui/menu-card";
+import Link from "next/link";
+
 
 export default function Page() {
   return (
     <div className="font-sans bg-gray-100 min-h-screen">
       {/* Header */}
-      <div className="bg-yellow-500 text-white flex items-center p-4">
+      <div className="bg-yellow-500 text-white flex items-center p-4 rounded-b-3xl">
+        <Link href="/dashboard" passHref>
         <button className="text-xl font-bold">&larr;</button>
+        </Link>
         <h1 className="text-xl font-bold mx-auto">Kantin Malathi</h1>
       </div>
 
@@ -17,8 +21,8 @@ export default function Page() {
         <div className="grid grid-cols-2 gap-6">
           <MenuCard image="/svg/Thai Tea.svg" />
           <MenuCard image="/svg/Ayam Geprek 1.svg" />
-          <MenuCard image="" />
-          <MenuCard image="" />
+          <MenuCard image="/svg/Ayam Geprek 1.svg" />
+          <MenuCard image="/svg/Ayam Geprek 1.svg" />
         </div>
       </div>
     </div>
