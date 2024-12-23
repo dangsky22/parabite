@@ -18,7 +18,7 @@ export default function Home() {
          >
             <div className="h-screen bg-orange-100 ">
                <Image
-                  src="/images/splash.png"
+                  src="/svg/splash.svg"
                   alt="onboarding"
                   width={440}
                   height={956}
@@ -32,6 +32,15 @@ export default function Home() {
                   >
                      Mulai
                   </Link>
+               </div>
+               <div className="flex justify-start mt-4 -translate-y-[500px]">
+                  <Image
+                     src="/svg/text.gif"
+                     alt="Animated GIF"
+                     width={300}
+                     height={147}
+                     className=""
+                  />
                </div>
             </div>
          </motion.div>
