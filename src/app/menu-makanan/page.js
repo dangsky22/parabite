@@ -44,36 +44,5 @@ export default function Page() {
             description="Komposisi :" 
           />
 
-           {/* Onigiri */}
-           <MenuCard 
-            image="/svg/Onigiri.svg" 
-            title="Onigiri" 
-            description="Komposisi :" 
-          />    
-
-           {/* Mentai */}
-           <MenuCard 
-            image="/svg/Mentai.svg" 
-            title="Mentai" 
-            description="Komposisi :" 
-          />
-
-           {/* Risol Mayo */}
-           <MenuCard 
-            image="/svg/Rizol Mayo.svg" 
-            title="Risol Mayo" 
-            description="Komposisi :" 
-          />
-
-           {/* Dimsum */}
-           <MenuCard 
-            image="/svg/Dimsum.svg" 
-            title="Dimsum" 
-            description="Komposisi :" 
-          />
-        </div>
-      </div>
-    );
-  }
-  
-  
+              )
+}
