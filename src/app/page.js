@@ -16,19 +16,19 @@ export default function Home() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, ease: 'easeInOut' }}
          >
-            <div className="h-screen bg-orange-100 ">
+            <div className="h-screen bg-orange-100 mb-10 ">
                <Image
-                  src="/svg/splash.svg"
+                  src="/images/splash.gif"
                   alt="onboarding"
                   width={440}
                   height={956}
                   className=""
                />
 
-               <div className="flex justify-center -translate-y-40">
+               <div className="flex justify-center -translate-y-40 py-6">
                   <Link
                      href="/dashboard"
-                     className="p-3 bg-gradient-to-r from-[#DAC7A3] to-[#D28F32] w-[304px] py-3 rounded-full text-center"
+                     className="p-3 bg-gradient-to-r from-[#DAC7A3] to-[#D28F32] w-[304px] py-3 rounded-full text-center "
                   >
                      Mulai
                   </Link>
