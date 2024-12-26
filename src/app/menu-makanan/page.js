@@ -1,13 +1,14 @@
 import MenuCard from "@/components/ui/menu-card";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Page() {
     return (
       <div className="font-sans bg-gray-100 min-h-screen w-full">
         {/* Header */}
         <div className="bg-yellow-500 text-white flex items-center p-4 rounded-b-3xl">
-          <Link href="/dashboard" passHref>
-          <button className="text-2xl">&larr;</button>
+          <Link href="/dashboard-penjual" passHref>
+          <Image src="/svg/back.svg" alt="Back" width={24} height={24} />
           </Link>
           <h1 className="text-xl font-bold mx-auto">Kantin Malathi</h1>
         </div>
@@ -20,14 +21,15 @@ export default function Page() {
           <MenuCard 
             image="/svg/Ayam Geprek 1.svg" 
             title="Ayam Geprek" 
-            description="Komposisi :" 
+            description="Ayam Goreng + Sambal Bawang"
           />
   
           {/* Korean Chicken */}
           <MenuCard 
             image="/svg/Crispy Seoul-Style Korean Fried Chicken 1.svg" 
             title="Korean Chicken" 
-            description="Komposisi :" 
+            description="Ayam Goreng+Sambal Bawang" 
+            
           />
   
           {/* Ayam Geprek Sambal Matah */}

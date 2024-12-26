@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Page() {
   const menuItems = [
@@ -18,9 +19,9 @@ export default function Page() {
       category: "MAKANAN",
     },
     {
-      image: "/svg/Ayam Geprek 1.svg",
-      name: "Ayam Geprek",
-      price: "Rp15.000",
+      image: "/svg/Mentai.svg",
+      name: "Mentai",
+      price: "Rp25.000",
       rating: 5,
       category: "MAKANAN",
     },
@@ -65,8 +66,8 @@ export default function Page() {
     <div className="bg-gray-100 min-h-screen font-sans">
       {/* Header */}
       <div className="bg-yellow-500 text-white p-6 flex items-center rounded-b-3xl">
-        <Link href="/dashboard" passHref>
-          <button className="text-xl font-bold">&larr;</button>
+        <Link href="/dashboard-penjual" passHref>
+          <Image src="/svg/back.svg" alt="Back" width={24} height={24} />
         </Link>
         <h1 className="text-2xl font-bold mx-auto">Kantin Malathi</h1>
       </div>

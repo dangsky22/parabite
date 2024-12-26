@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
             />
          </head>
          <body
-            className={`${geistSans.variable} ${geistMono.variable} flex flex-col justify-center items-center  w-full max-w-[375px] mx-auto `}
+            className={`${geistSans.variable} ${geistMono.variable} `}
          >
             <ClientWrapper>
                <ClientLayout>{children}</ClientLayout>
