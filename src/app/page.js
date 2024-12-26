@@ -33,6 +33,15 @@ export default function Home() {
                      Mulai
                   </Link>
                </div>
+               <div className="flex justify-start mt-4 -translate-y-[500px]">
+                  <Image
+                     src="/svg/text.gif"
+                     alt="Animated GIF"
+                     width={300}
+                     height={147}
+                     className=""
+                  />
+               </div>
             </div>
          </motion.div>
       </motion.div>
