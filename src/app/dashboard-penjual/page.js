@@ -25,7 +25,9 @@ export default function Page() {
             </div>
             <div className="bg-[#D9D9D9] w-full items-center rounded-lg py-2 flex justify-between px-5 mt-4">
               <div className="flex items-center gap-1">
+                <Link href="order" passHref>
                 <Image src="/svg/pesanan.svg" alt="pesanan" width={28} height={29} />
+                </Link>
                 <p>Pesanan</p>
               </div>
               <div className="flex items-center gap-1">
