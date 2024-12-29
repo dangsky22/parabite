@@ -1,11 +1,11 @@
 'use client'
 
+import { useState } from "react";
 import Header from "./components/Header";
 import Card from "./components/Card";
 import Footer from "./components/Footer";
 
 export default function Kantin() {
-  // Data untuk menu
   const favoriteMenu = [
     { id: 1, name: "Ayam Geprek", price: "15.000", image: "/svg/ayam-geprek.svg" },
     { id: 2, name: "Chicken Katsu", price: "15.000", image: "/svg/korean.svg" },
@@ -27,9 +27,14 @@ export default function Kantin() {
     { id: 3, name: "Teh Original", price: "5.000", image: "/svg/minuman-esteh.svg" },
   ];
 
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  const handlePriceUpdate = (price) => {
+    setTotalPrice(prevTotal => prevTotal + price);
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 mb-28">
-      {/* Header */}
       <Header title="Kantin Malathi" />
 
       {/* Menu Favorit */}
@@ -44,34 +49,35 @@ export default function Kantin() {
         </div>
       </section>
 
-        {/* Makanan */}
-        <section className="px-6 mt-6">
-            <div className="flex justify-between items-center">
-            <h2 className="text-xl font-semibold text-[#106294]">Makanan</h2>
-            <button className="text-[#106294] flex items-center space-x-2">
-                <span>FILTER</span>
-                <img src="/svg/filter.svg" alt="Filter Icon" />
-            </button>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-3">
-            {foods.map((item) => (
-                <Card key={item.id} item={item} withButton />
-            ))}
-            </div>
-        </section>
+      {/* Makanan */}
+      <section className="px-6 mt-6">
+        <div className="flex justify-between items-center">
+          <h2 className="text-xl font-semibold text-[#106294]">Makanan</h2>
+          <button className="text-[#106294] flex items-center space-x-2">
+            <span>FILTER</span>
+            <img src="/svg/filter.svg" alt="Filter Icon" />
+          </button>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-3">
+          {foods.map((item) => (
+            <Card key={item.id} item={item} withButton handlePriceUpdate={handlePriceUpdate} />
+          ))}
+        </div>
+      </section>
 
       {/* Minuman */}
       <section className="px-6 mt-6">
         <h2 className="text-xl font-semibold text-[#305B8F]">Minuman</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-3">
           {drinks.map((item) => (
-            <Card key={item.id} item={item} withButton />
+            <Card key={item.id} item={item} withButton handlePriceUpdate={handlePriceUpdate} />
           ))}
         </div>
       </section>
 
       {/* Footer */}
-      <Footer />
+      <Footer totalPrice={totalPrice} />
     </div>
   );
 }
+

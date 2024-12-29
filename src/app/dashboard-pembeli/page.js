@@ -210,6 +210,7 @@ export default function Page() {
     </Link>
   </div>
   <div className="flex overflow-x-auto gap-4 mt-4 scrollbar-hide">
+  <Link href="/malathi" passHref>
     <div className="flex-shrink-0 w-48">
       <Image
         src="/svg/Mentai.svg"
@@ -219,6 +220,8 @@ export default function Page() {
       />
       <p className="text-gray-800 text-center font-medium mt-2">Kantin Malathi</p>
     </div>
+    </Link>
+
     <div className="flex-shrink-0 w-48">
       <Image
         src="/svg/kebab.svg"
