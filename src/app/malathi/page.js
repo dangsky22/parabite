@@ -1,6 +1,6 @@
 'use client'
 
-import Header from "./components/header";
+import Header from "./components/Header";
 import Card from "./components/Card";
 import Footer from "./components/Footer";
 
@@ -28,7 +28,7 @@ export default function Kantin() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-100 mb-28">
       {/* Header */}
       <Header title="Kantin Malathi" />
 
@@ -47,10 +47,10 @@ export default function Kantin() {
         {/* Makanan */}
         <section className="px-6 mt-6">
             <div className="flex justify-between items-center">
-            <h2 className="text-xl font-semibold text-[#305B8F]">Makanan</h2>
-            <button className="text-[#305B8F] flex items-center space-x-2">
+            <h2 className="text-xl font-semibold text-[#106294]">Makanan</h2>
+            <button className="text-[#106294] flex items-center space-x-2">
                 <span>FILTER</span>
-                <img src="/images/filter-icon.svg" alt="Filter Icon" />
+                <img src="/svg/filter.svg" alt="Filter Icon" />
             </button>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-3">

@@ -17,60 +17,60 @@ export default function Page() {
         <div className="p-5">
           <h2 className="font-bold text-lg mb-4">Menu Minuman</h2>
   
-          {/* Ayam Geprek */}
+          {/* Es Teh */}
           <MenuCard
             image="/svg/minuman-esteh.svg" 
-            title="Ayam Geprek" 
-            description="Komposisi :" 
+            title="Es Teh Original" 
+            description="Es Teh Manis" 
           />
   
-          {/* Korean Chicken */}
+          {/* Es Teh Lemon */}
           <MenuCard 
             image="/svg/minuman-esteh-lemon.svg" 
-            title="Korean Chicken" 
-            description="Komposisi :" 
+            title="Es Teh Lemon" 
+            description="Es Teh Rasa Lemon" 
           />
   
-          {/* Ayam Geprek Sambal Matah */}
+          {/* Es Teh Mangga */}
           <MenuCard 
             image="/svg/minuman-esteh-mangga.svg" 
-            title="Ayam Geprek Sambal Matah" 
-            description="Komposisi :" 
+            title="Es Teh Mangga" 
+            description="Es Teh Rasa Mangga" 
           />
   
-          {/* Kebab */}
+          {/* Es Teh Leci */}
           <MenuCard 
             image="/svg/minuman-esteh-leci.svg" 
-            title="Kebab" 
-            description="Komposisi :" 
+            title="Es Teh Leci" 
+            description="Es Teh Rasa Leci" 
           />
 
-           {/* Onigiri */}
+           {/* Green Tea */}
            <MenuCard 
             image="/svg/minuman-green-teh.svg" 
-            title="Onigiri" 
-            description="Komposisi :" 
+            title="Green Tea" 
+            description="Green Tea Dengan Susu" 
           />    
 
-           {/* Mentai */}
+           {/* Thai Tea */}
            <MenuCard 
             image="/svg/minuman-thai-teh.svg" 
-            title="Mentai" 
-            description="Komposisi :" 
+            title="Thai Tea" 
+            description="Teh Dengan Susu" 
           />
 
-           {/* Risol Mayo */}
+           {/* Air Mineral */}
            <MenuCard 
-            image="/svg/Rizol Mayo.svg" 
-            title="Risol Mayo" 
-            description="Komposisi :" 
+            image="/svg/Air Mineral.svg" 
+            title="Air Mineral" 
+            description="Air Mineral Dengan Berbagai Merk" 
           />
 
-           {/* Dimsum */}
+           {/* Susu Cimory */}
            <MenuCard 
-            image="/svg/Dimsum.svg" 
-            title="Dimsum" 
-            description="Komposisi :" 
+            image="/svg/Susu Cimory.svg" 
+            title="Susu Cimory" 
+            description="Susu Cimory Dengan Berbagai Rasa" 
           />
         </div>
       </div>

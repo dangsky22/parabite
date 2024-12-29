@@ -19,21 +19,21 @@ export default function Page() {
 
                 {/* Ayam Geprek */}
                 <MenuCard 
-                    image="/svg/Ayam Geprek 1.svg" 
+                    image="/svg/ayam-geprek.svg" 
                     title="Ayam Geprek" 
                     description="Ayam Goreng + Sambal Bawang"
                 />
 
                 {/* Korean Chicken */}
                 <MenuCard 
-                    image="/svg/Crispy Seoul-Style Korean Fried Chicken 1.svg" 
+                    image="/svg/korean.svg" 
                     title="Korean Chicken" 
-                    description="Ayam Goreng + Sambal Bawang"
+                    description="Ayam dengan Saus Korea"
                 />
 
                 {/* Ayam Geprek Sambal Matah */}
                 <MenuCard 
-                    image="/svg/Ayam Geprek Matah.svg" 
+                    image="/svg/geprek-matah.svg" 
                     title="Ayam Geprek Sambal Matah" 
                     description="Komposisi:"
                 />
@@ -43,6 +43,31 @@ export default function Page() {
                     image="/svg/kebab.svg" 
                     title="Kebab" 
                     description="Komposisi:"
+                />
+
+                {/* Additional Menu Items */}
+                <MenuCard 
+                    image="/svg/Onigiri.svg" 
+                    title="Onigiri" 
+                    description="Nasi kepal isi Ayam" 
+                />    
+
+                <MenuCard 
+                    image="/svg/Mentai.svg" 
+                    title="Mentai" 
+                    description="Nasi Dengan Saus Mentai" 
+                />
+
+                <MenuCard 
+                    image="/svg/Rizol Mayo.svg" 
+                    title="Risol Mayo" 
+                    description="Risol isi Telur dan Mayonaise" 
+                />
+
+                <MenuCard 
+                    image="/svg/Dimsum.svg" 
+                    title="Dimsum" 
+                    description="Dimsum Isi Daging dan Udang" 
                 />
             </div>
         </div>

@@ -74,10 +74,12 @@ export default function Page() {
 
       {/* Tombol Tambah Menu dan Filter */}
       <div className="flex justify-between items-center p-6 gap-x-4">
+        <Link href="tambah-menu" passHref>
         <button className="bg-yellow-500 text-white px-6 py-3 rounded-lg font-bold flex items-center space-x-2">
           <span>&#43;</span>
           <span>Tambah Menu</span>
         </button>
+        </Link>
         <button className="text-gray-600 px-6 py-3 rounded-lg font-bold flex items-center space-x-2">
           <span>Filter</span>
           <img src="/svg/filter.svg" alt="Filter Icon" className="w-6 h-6" />
