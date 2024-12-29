@@ -43,7 +43,7 @@ export default function Card({ item, withButton, handlePriceUpdate }) {
         className="w-full h-36 bg-cover bg-center"
         style={{ backgroundImage: `url(${item.image})` }}
       />
-      <div className="p-4 absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black opacity-75">
+      <div className="p-4 absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black ">
         <div className="flex flex-col justify-end space-y-2">
           <h3 className="font-semibold text-white text-lg">{item.name}</h3>
           <p className="text-sm text-white">{item.price}</p>
