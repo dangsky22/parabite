@@ -24,22 +24,36 @@ export async function POST(req) {
          password
       )
 
-      const idToken = await userCredential.user.getIdToken()
-      const userCliams = await userCredential.user.getIdTokenResult()
-      const role = userCliams.claims.role || 'pembeli'
+      const user = userCredential.user
+      if (!user.emailVerified) {
+         return new NextResponse(
+            JSON.stringify({
+               message: 'Email belum diverifikasi. Silakan verifikasi email Anda terlebih dahulu.',
+            }),
+            {
+               status: 403, 
+               headers: { 'Content-Type': 'application/json' },
+            }
+         )
+      }
 
-      const isProduction = process.env.NODE_ENV === 'production'
-      const cookie = `firebase_token=${idToken}; HttpOnly; ${
-         isProduction ? 'Secure;' : ''
-      } SameSite=Strict; Max-Age=${30 * 24 * 60 * 60}; Path=/`
+      
+      const idToken = await user.getIdToken()
+      const userClaims = await user.getIdTokenResult()
+      const role = userClaims.claims.role || 'pembeli' 
 
+     
       return new NextResponse(
-         JSON.stringify({ message: 'Login Successful', token: idToken, role }),
+         JSON.stringify({
+            message: 'Login Successful',
+            role,
+            idToken,
+         }),
          {
             status: 200,
             headers: {
                'Content-Type': 'application/json',
-               'Set-Cookie': cookie,
+               'Authorization': `Bearer ${idToken}`, 
             },
          }
       )
@@ -47,7 +61,7 @@ export async function POST(req) {
       return new NextResponse(
          JSON.stringify({
             message: 'Login failed',
-            error: 'invalid credential or server error',
+            error: error.message || 'Invalid credentials or server error',
          }),
          {
             status: 401,
