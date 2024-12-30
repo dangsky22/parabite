@@ -1,40 +1,25 @@
+"use client";
 import BoxMakanan from "@/components/share/BoxMakanan";
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Sepuluh() {
-  const items = [
-    {
-      toko: "Kantin Malathi",
-      name: "Kebab",
-      price: "10.000",
-      image: "/svg/kebab.svg",
-    },
-    {
-      toko: "Kantin Malathi",
-      name: "Onigiri",
-      price: "10.000",
-      image: "/svg/onigiri.svg",
-    },
-    {
-      toko: "Darna Caffee",
-      name: "Ayam Geprek",
-      price: "10.000",
-      image: "/svg/ayam-geprek.svg",
-    },
-    {
-      toko: "Kantin Malathi",
-      name: "Dimsum",
-      price: "10.000",
-      image: "/svg/dimsum.svg",
-    },
-    {
-      toko: "Kantin Malathi",
-      name: "Crispy Chicken Taiwan",
-      price: "10.000",
-      image: "/svg/taiwan.svg",
-    },
-  ];
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://6772217cee76b92dd49137bf.mockapi.io/menus")
+      .then((response) => {
+        // Filter to include only 'makanan' category
+        const makananItems = response.data.filter((item) => item.kategori === 'makanan');
+        setItems(makananItems);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -56,8 +41,8 @@ export default function Sepuluh() {
 
       {/* Content */}
       <main className="p-4">
-        {items.map((item, index) => (
-          <BoxMakanan key={index} item={item} />
+        {items.map((item) => (
+          <BoxMakanan key={item.id} item={item} />
         ))}
       </main>
     </div>

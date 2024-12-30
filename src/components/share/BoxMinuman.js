@@ -15,19 +15,17 @@ const BoxMinuman = ({ item }) => {
       <div className="flex items-center gap-4">
         <Image
           src={item.image}
-          alt={item.name}
+          alt={item.nama} // Menggunakan 'nama' dari API
           width={80}
           height={80}
           className="rounded-lg"
         />
         {/* Info */}
         <div>
-          {/* Toko */}
-          <h3 className="text-sm font-medium text-gray-500">{item.toko}</h3>
           {/* Nama Makanan */}
-          <h3 className="text-lg font-semibold text-gray-800">{item.name}</h3>
+          <h3 className="text-lg font-semibold text-gray-800">{item.nama}</h3> {/* Menggunakan nama */}
           {/* Harga */}
-          <p className="text-gray-500">{item.price}</p>
+          <p className="text-gray-500">Rp {item.harga}</p> {/* Menggunakan harga */}
           {/* Stars */}
           <div className="flex gap-1 text-yellow-500 text-xl">
             {Array(5)
@@ -41,9 +39,7 @@ const BoxMinuman = ({ item }) => {
       {/* Favorite Icon */}
       <button
         onClick={handleFavoriteClick}
-        className={`rounded-xl p-2 ${
-          isFavorite ? "bg-pink-500" : "bg-[#5DA399]"
-        }`}
+        className={`rounded-xl p-2 ${isFavorite ? "bg-pink-500" : "bg-[#5DA399]"}`}
       >
         <Image
           src="/svg/fav.svg"

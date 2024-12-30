@@ -1,46 +1,25 @@
-import BoxPanas from "./components/BoxPanas";
+"use client";
+import BoxMakanan from "@/components/share/BoxMakanan";
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function SemangatKuliah() {
-  const items = [
-    {
-      toko: "Kantin Malathi",
-      name: "Ayam Geprek",
-      price: ".0500",
-      image: "/svg/ayam-geprek.svg",
-    },
-    {
-      toko: "Kantin Malathi",
-      name: "Chicken Korean",
-      price: "5.000",
-      image: "/svg/korean.svg",
-    },
-    {
-      toko: "Darna Caffee",
-      name: "Mie Nyemek",
-      price: "5.000",
-      image: "/svg/nyemek.svg",
-    },
-    {
-      toko: "Kantin Malathi",
-      name: "Ayam Geprek Matah",
-      price: "15.000",
-      image: "/svg/geprek-matah.svg",
-    },
-    {
-      toko: "Darna Caffee",
-      name: "Ayam Penyet",
-      price: "5.000",
-      image: "/svg/ayam-penyet.svg",
-    },
-    {
-      toko: "Mie Ayam Pakdhe",
-      name: "Crispy Chicken Taiwan",
-      price: "5.000",
-      image: "/svg/taiwan.svg",
-    },
-  ];
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://6772217cee76b92dd49137bf.mockapi.io/menus")
+      .then((response) => {
+        // Filter to include only 'makanan' category
+        const makananItems = response.data.filter((item) => item.kategori === 'makanan');
+        setItems(makananItems);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -62,8 +41,8 @@ export default function SemangatKuliah() {
 
       {/* Content */}
       <main className="p-4">
-        {items.map((item, index) => (
-          <BoxPanas key={index} item={item} />
+        {items.map((item) => (
+          <BoxMakanan key={item.id} item={item} />
         ))}
       </main>
     </div>

@@ -1,46 +1,25 @@
-import BoxMakanan from "@/components/share/BoxMakanan";
+"use client";
+import BoxMinuman from "@/components/share/BoxMinuman";
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Paradrink() {
-  const items = [
-    {
-      toko: "Kantin Malathi",
-      name: "Es Teh Original",
-      price: ".0500",
-      image: "/svg/kebab.svg",
-    },
-    {
-      toko: "Kantin Malathi",
-      name: "Es Teh Mangga",
-      price: "5.000",
-      image: "/svg/onigiri.svg",
-    },
-    {
-      toko: "Darna Caffee",
-      name: "Es Teh Lemon",
-      price: "5.000",
-      image: "/svg/ayam-geprek.svg",
-    },
-    {
-      toko: "Kantin Malathi",
-      name: "Es Teh Leci",
-      price: "10.000",
-      image: "/svg/dimsum.svg",
-    },
-    {
-      toko: "Kantin Malathi",
-      name: "Thai Tea",
-      price: "5.000",
-      image: "/svg/minuman-thai-teh.svg",
-    },
-    {
-      toko: "Kantin Malathi",
-      name: "Green Tea",
-      price: "5.000",
-      image: "/svg/minuman-green-teh.svg",
-    },
-  ];
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://6772217cee76b92dd49137bf.mockapi.io/menus")
+      .then((response) => {
+        // Filter to include only 'minuman' category
+        const minumanItems = response.data.filter((item) => item.kategori === 'minuman');
+        setItems(minumanItems);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -62,8 +41,8 @@ export default function Paradrink() {
 
       {/* Content */}
       <main className="p-4">
-        {items.map((item, index) => (
-          <BoxMakanan key={index} item={item} />
+        {items.map((item) => (
+          <BoxMinuman key={item.id} item={item} />
         ))}
       </main>
     </div>
