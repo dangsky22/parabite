@@ -1,8 +1,11 @@
+"use client";
+
 import Navbar from "@/components/ui/navbar";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Page() {
+  
   return (
     <>
       <div className="h-full bg-[#F6F6F6]">
