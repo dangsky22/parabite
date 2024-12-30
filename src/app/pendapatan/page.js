@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { useRouter } from "next/navigation"; // Import useRouter untuk navigasi
+import { useRouter } from "next/navigation";
 
 export default function PendapatanPage() {
   const router = useRouter(); // Inisialisasi useRouter
@@ -21,25 +21,38 @@ export default function PendapatanPage() {
   ];
 
   const dataMinggu = [
-    { waktu: "Senin", pesanan: "102", metode: "QRIS", total: "Rp. 300.000" },
-    { waktu: "Selasa", pesanan: "97", metode: "CASH", total: "Rp. 280.000" },
-    { waktu: "Rabu", pesanan: "85", metode: "QRIS", total: "Rp. 250.000" },
-    { waktu: "Kamis", pesanan: "120", metode: "CASH", total: "Rp. 400.000" },
-    { waktu: "Jumat", pesanan: "110", metode: "QRIS", total: "Rp. 350.000" },
-    { waktu: "Sabtu", pesanan: "90", metode: "CASH", total: "Rp. 300.000" },
-    { waktu: "Minggu", pesanan: "75", metode: "QRIS", total: "Rp. 250.000" },
+    { waktu: "Senin", pesanan: "102", total: "Rp. 300.000" },
+    { waktu: "Selasa", pesanan: "97", total: "Rp. 280.000" },
+    { waktu: "Rabu", pesanan: "85", total: "Rp. 250.000" },
+    { waktu: "Kamis", pesanan: "120", total: "Rp. 400.000" },
+    { waktu: "Jumat", pesanan: "110", total: "Rp. 350.000" },
+    { waktu: "Sabtu", pesanan: "90", total: "Rp. 300.000" },
+    { waktu: "Minggu", pesanan: "75", total: "Rp. 250.000" },
   ];
+
+  // Fungsi untuk menghitung total pendapatan
+  const calculateTotalPendapatan = (data) => {
+    return data.reduce((total, item) => {
+      const itemTotal = parseInt(item.total.replace(/[^0-9]/g, ""), 10); // Ambil angka dari string "Rp."
+      return total + itemTotal;
+    }, 0);
+  };
 
   const renderTableRows = (data) => {
     return data.map((row, index) => (
       <tr key={index} className="text-center border-b">
         <td className="py-2">{row.waktu}</td>
         <td>{row.pesanan}</td>
-        <td>{row.metode}</td>
+        {row.metode && <td>{row.metode}</td>} {/* Render metode hanya jika ada */}
         <td>{row.total}</td>
       </tr>
     ));
   };
+
+  const totalPendapatan =
+    activeTab === "hari"
+      ? calculateTotalPendapatan(dataHari)
+      : calculateTotalPendapatan(dataMinggu);
 
   return (
     <div className="min-h-screen bg-[#F6F6F6]">
@@ -80,8 +93,10 @@ export default function PendapatanPage() {
           <thead className="bg-[#E48621] text-white">
             <tr>
               <th className="py-2">Tanggal & Waktu</th>
-              <th>No. Pesanan</th>
-              <th>Metode Pembayaran</th>
+              <th>
+                {activeTab === "hari" ? "No. Pesanan" : "Total Pesanan"} {/* Header kolom dinamis */}
+              </th>
+              {activeTab === "hari" && <th>Metode Pembayaran</th>} {/* Kolom metode hanya untuk tab Hari */}
               <th>Total</th>
             </tr>
           </thead>
@@ -90,7 +105,7 @@ export default function PendapatanPage() {
 
         {/* Total Pendapatan */}
         <div className="mt-4 bg-[#E48621] text-white text-center py-2 rounded-lg shadow-md">
-          <span className="font-bold">Total Pendapatan:</span> Rp. 210.000
+          <span className="font-bold">Total Pendapatan:</span> Rp. {totalPendapatan.toLocaleString("id-ID")}
         </div>
       </div>
     </div>

@@ -114,7 +114,7 @@ export default function ProfilePage() {
           <div className="flex gap-4">
             <div className="flex-1">
               <Image
-                src="/svg/Ayam geprek 1.svg"
+                src="/svg/ayam-geprek.svg"
                 alt="Menu 1"
                 className="rounded-lg w-full object-cover"
                 width={120}
@@ -123,7 +123,7 @@ export default function ProfilePage() {
             </div>
             <div className="flex-1">
               <Image
-                src="/svg/Ayam Geprek Matah.svg"
+                src="/svg/ayam-penyet.svg"
                 alt="Menu 2"
                 className="rounded-lg w-full object-cover"
                 width={120}
